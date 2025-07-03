@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>イベントカレンダー</title>
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+      margin: 0;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .calendar-controls {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .calendar-controls button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .calendar-controls button:hover {
+      background-color: #217dbb;
+    }
+    table.calendar {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 12px 8px;
+      vertical-align: top;
+      height: 80px;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+    }
+    th {
+      background-color: #eee;
+      font-weight: 700;
+    }
+    td.event-on {
+      background-color: #b3e5fc; /* スカイブルー */
+      color: #0a3d62;
+    }
+    td.event-qn {
+      background-color: #f8bbd0; /* ピンク */
+      color: #6a1b4d;
+    }
+    td.event-bar {
+      background-color: #fff9c4; /* 黄 */
+      color: #665c00;
+    }
+    /* スマホ対応 */
+    @media (max-width: 480px) {
+      th, td {
+        font-size: 12px;
+        height: 60px;
+        padding: 8px 4px;
+      }
+      .calendar-controls button {
+        padding: 6px 10px;
+        margin: 0 5px;
+        font-size: 14px;
+      }
+    }
+    .badge { display:inline-block; margin-top:6px; padding:2px 8px; border-radius:12px; font-size:12px; font-weight:bold; }
+    .badge-bar { background:#fffde7; color:#665c00; border:1px solid #ffe082; }
+    .badge-qn { background:#f8bbd0; color:#6a1b4d; border:1px solid #f06292; }
+    .badge-on { background:#b3e5fc; color:#0a3d62; border:1px solid #4fc3f7; }
+    .today { outline:2px solid #ff7043; outline-offset:-2px; background: #fff3e0 !important; }
+    .date-num { font-size:1.2em; font-weight:700; }
+    #month-select, #year-select { padding:4px 8px; border-radius:5px; border:1px solid #bbb; margin:0 2px; }
+    #today-btn { background:#43a047; color:#fff; border:none; border-radius:5px; padding:6px 12px; margin:0 5px; cursor:pointer; font-weight:bold; }
+    #today-btn:hover { background:#388e3c; }
+  </style>
+</head>
+<body>
+
+  <h2 id="calendar-title"></h2>
+  <div class="calendar-controls">
+    <button id="prev-month" title="前の月"><span aria-hidden="true">&#8592;</span></button>
+    <select id="month-select"></select>
+    <select id="year-select"></select>
+    <button id="today-btn">今日</button>
+    <button id="next-month" title="次の月"><span aria-hidden="true">&#8594;</span></button>
+  </div>
+  <table class="calendar" id="calendar"></table>
+  <script>
+    const daysOfWeek = ["日", "月", "火", "水", "木", "金", "土"];
+    const clubOnWeeks = [1, 3];
+    const clubQnWeeks = [0, 2];
+    let currentDate = new Date();
+
+    function pad(num) { return num < 10 ? '0' + num : num; }
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const today = new Date();
+      const calendarTitle = document.getElementById("calendar-title");
+      calendarTitle.textContent = `${year}年${month + 1}月 イベントカレンダー`;
+      document.getElementById('month-select').value = month;
+      document.getElementById('year-select').value = year;
+      const calendar = document.getElementById("calendar");
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const monthLength = lastDay.getDate();
+      const startWeekday = firstDay.getDay();
+      let html = "<thead><tr>";
+      for (let i = 0; i < 7; i++) {
+        let color = i === 0 ? '#e57373' : i === 6 ? '#64b5f6' : '';
+        html += `<th style='color:${color}'>${daysOfWeek[i]}</th>`;
+      }
+      html += "</tr></thead><tbody><tr>";
+      for (let i = 0; i < startWeekday; i++) {
+        html += "<td></td>";
+      }
+      for (let day = 1; day <= monthLength; day++) {
+        const dateObj = new Date(year, month, day);
+        const weekday = dateObj.getDay();
+        const weekIndex = Math.floor((day + startWeekday - 1) / 7);
+        let className = "";
+        let label = "";
+        let badge = "";
+        if (weekday === 5) {
+          className = "event-bar";
+          badge = '<span class="badge badge-bar">BAR</span>';
+        }
+        if (weekday === 6 && clubQnWeeks.includes(weekIndex)) {
+          className = "event-qn";
+          badge = '<span class="badge badge-qn">QUEEN</span>';
+        }
+        if (weekday === 6 && clubOnWeeks.includes(weekIndex)) {
+          className = "event-on";
+          badge = '<span class="badge badge-on">ONENIGHT</span>';
+        }
+        let todayClass = (today.getFullYear() === year && today.getMonth() === month && today.getDate() === day) ? 'today' : '';
+        html += `<td class="${className} ${todayClass}"><div class="date-num">${day}</div>${badge}</td>`;
+        if (weekday === 6 && day !== monthLength) {
+          html += "</tr><tr>";
+        }
+      }
+      const remaining = (7 - ((startWeekday + monthLength) % 7)) % 7;
+      for (let i = 0; i < remaining; i++) {
+        html += "<td></td>";
+      }
+      html += "</tr></tbody>";
+      calendar.innerHTML = html;
+    }
+    function populateSelectors() {
+      const monthSel = document.getElementById('month-select');
+      const yearSel = document.getElementById('year-select');
+      monthSel.innerHTML = '';
+      yearSel.innerHTML = '';
+      for (let m = 0; m < 12; m++) {
+        monthSel.innerHTML += `<option value='${m}'>${m + 1}月</option>`;
+      }
+      const thisYear = new Date().getFullYear();
+      for (let y = thisYear - 3; y <= thisYear + 3; y++) {
+        yearSel.innerHTML += `<option value='${y}'>${y}年</option>`;
+      }
+    }
+    document.getElementById("prev-month").addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate);
+    });
+    document.getElementById("next-month").addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate);
+    });
+    document.getElementById('today-btn').addEventListener('click', () => {
+      currentDate = new Date();
+      renderCalendar(currentDate);
+    });
+    document.getElementById('month-select').addEventListener('change', e => {
+      currentDate.setMonth(Number(e.target.value));
+      renderCalendar(currentDate);
+    });
+    document.getElementById('year-select').addEventListener('change', e => {
+      currentDate.setFullYear(Number(e.target.value));
+      renderCalendar(currentDate);
+    });
+    populateSelectors();
+    renderCalendar(currentDate);
+  </script>
+</body>
+</html>
