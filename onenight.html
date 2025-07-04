@@ -13,6 +13,54 @@
       color: #23243a;
       background: linear-gradient(120deg, #fffbe6 0%, #f7f7fa 100%);
     }
+        .topnav {
+      background: linear-gradient(120deg, #fffbe6 0%, #f7f7fa 100%);
+      box-shadow: 0 2px 12px rgba(191,161,74,0.10);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .topnav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topnav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .topnav-logo img {
+      height: 40px;
+      margin-right: 8px;
+    }
+    .topnav-menu {
+      display: flex;
+      gap: 16px;
+    }
+    .topnav-btn {
+      color: #23243a;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 18px;
+      transition: background 0.3s, color 0.3s;
+      /* active解除: 背景色や色の変化を無効化 */
+    }
+    .topnav-btn:hover {
+      background: rgba(191,161,74,0.1);
+      color: #bfa14a;
+    }
+    /* activeクラスのスタイルを解除 */
+    .topnav-btn.active {
+      background: none !important;
+      color: #23243a !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
     header {
       text-align: center;
       padding: 60px 20px 20px;
@@ -135,10 +183,10 @@
       background: #fffbe6;
       border-radius: 18px;
       box-shadow: 0 8px 32px rgba(191,161,74,0.18);
-      padding: 36px 24px 24px 24px;
-      min-width: 320px;
-      max-width: 90vw;
-      max-height: 80vh;
+      padding: 48px 40px 40px 40px;
+      min-width: 420px;
+      max-width: 98vw;
+      max-height: 90vh;
       overflow-y: auto;
       position: relative;
       border: 2px solid #bfa14a;
@@ -156,8 +204,8 @@
       justify-content: center;
     }
     .modal-img {
-      width: 200px;
-      height: 250px;
+      width: 240px;
+      height: 300px;
       object-fit: cover;
       border-radius: 12px;
       margin-bottom: 0;
@@ -228,12 +276,14 @@
     .modal-close:hover {
       color: #a88c2c;
     }
-    @media (max-width: 600px) {
-      .modal-flex { flex-direction: column; gap: 10px; }
-      .modal-content { min-width: 0; padding: 18px 4px 12px 4px; }
-      .modal-img { width: 120px; height: 150px; }
-      .modal-info { min-width: 0; align-items: center; }
-      .modal-comment, .modal-castlist { min-width: 0; }
+    footer {
+      background: linear-gradient(120deg, #fffbe6 0%, #f7f7fa 100%);
+      color: #23243a;
+      padding: 36px 0 18px 0;
+      margin-top: 60px;
+      text-align: center;
+      border-top: 1.5px solid #e6d8b7;
+      box-shadow: 0 -2px 12px rgba(191,161,74,0.08);
     }
     @media (max-width: 700px) {
       h1 { font-size: 1.5em; }
@@ -241,19 +291,38 @@
       .tabs { gap: 8px; }
       .tab-button { padding: 10px 18px; font-size: 1em; }
     }
+    @media (max-width: 600px) {
+      .modal-flex { flex-direction: column; gap: 10px; }
+      .modal-content { min-width: 0; padding: 18px 4px 12px 4px; }
+      .modal-img { width: 120px; height: 150px; }
+      .modal-info { min-width: 0; align-items: center; }
+      .modal-comment, .modal-castlist { min-width: 0; }
+    }
   </style>
 </head>
 <body>
+  <div class="topnav">
+    <div class="topnav-inner">
+      <a href="index.html" class="topnav-logo">
+        <img src="https://p-ce.group/p3/img/logo_w.png" alt="ONENIGHT GROUP">
+        <span style="color:#23243a;">ONENIGHT GROUP</span>
+      </a>
+      <nav class="topnav-menu">
+        <a href="index.html" class="topnav-btn" style="color:#23243a;">TOP</a>
+        <a href="bar-onenight.html" class="topnav-btn" style="color:#23243a;">BAR ONENIGHT</a>
+        <a href="onenight.html" class="topnav-btn" style="color:#23243a;">CLUB ONENIGHT</a>
+        <a href="queennight.html" class="topnav-btn" style="color:#23243a;">CLUB QUEENNIGHT</a>
+      </nav>
+    </div>
+  </div>
   <header>
     <h1>CLUB ONENIGHT</h1>
     <div class="gold-line"></div>
-    <p class="overview">元ホストが監修したリアルな体験を元に、特別な夜を提供致します。</p>
-    <div class="tabs">
-      <a class="tab-button" href="index.html">TOP</a>
-      <a class="tab-button active" href="onenight.html">CLUB ONENIGHT</a>
-      <a class="tab-button" href="bar.html">ONENIGHT BAR</a>
-      <a class="tab-button" href="queennight.html">CLUB QUEENNIGHT</a>
-    </div>
+    <p class="overview" id="qn-overview" style="white-space:nowrap;overflow-x:hidden;position:relative;">
+      <span class="overview-pc" id="scroll-text" style="display:inline-block;">売上制度やシャンパンコール等、実際のホストクラブのシステムを取り入れたイベント。 豪華なキャストと共に、まるで夢のような時間をお楽しみください。</span>
+      <span class="overview-sp" style="display:none;">売上制度やシャンパンコール等、ホストクラブのシステムを体験できる特別イベント。 豪華キャストと夢の時間を。</span>
+    </p>
+    <!-- タブボタン削除 -->
   </header>
   <div class="tab-content active">
     <h2>CLUB ONENIGHT</h2>
@@ -264,12 +333,29 @@
     </div>
     <div class="cast-grid" id="cast-list"></div>
   </div>
+  <!-- カレンダー部分ここから（元の仕様に戻す） -->
+  <div class="calendar-area">
+    <iframe src="calendar-onenight.html" style="width:100%;min-height:600px;border:none;" title="営業カレンダー"></iframe>
+  </div>
+  <!-- カレンダー部分ここまで -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal-content">
       <button class="modal-close" id="modal-close" title="閉じる">&times;</button>
       <div id="modal-detail"></div>
     </div>
   </div>
+  <footer style="background: linear-gradient(120deg, #fffbe6 0%, #f7f7fa 100%); color:#23243a; padding:36px 0 18px 0; margin-top:60px; text-align:center; border-top: 1.5px solid #e6d8b7; box-shadow: 0 -2px 12px rgba(191,161,74,0.08);">
+    <div style="max-width:900px;margin:0 auto;">
+      <img src="https://p-ce.group/p3/img/logo_w.png" alt="ONENIGHT GROUP" style="height:38px;margin-bottom:18px;filter:drop-shadow(0 2px 8px #bfa14a);">
+      <div style="margin-bottom:18px;font-size:1.1em;letter-spacing:0.04em;">
+        <a href="index.html" style="color:#23243a;text-decoration:none;margin:0 12px;">TOP</a>
+        <a href="bar-onenight.html" style="color:#23243a;text-decoration:none;margin:0 12px;">BAR ONENIGHT</a>
+        <a href="onenight.html" style="color:#23243a;text-decoration:none;margin:0 12px;">CLUB ONENIGHT</a>
+        <a href="queennight.html" style="color:#23243a;text-decoration:none;margin:0 12px;">CLUB QUEENNIGHT</a>
+      </div>
+      <div style="font-size:0.98em;opacity:0.7;color:#23243a;">© 2025 ONENIGHT GROUP</div>
+    </div>
+  </footer>
   <script>
     // --- キャスト・内勤データ ---
     const castList = [
@@ -342,6 +428,38 @@
     document.getElementById('btn-cast').onclick = ()=>renderList('cast');
     document.getElementById('btn-staff').onclick = ()=>renderList('staff');
     renderList('cast');
+        // --- 概要文を自動で横スクロールさせる（PC表示のみ） ---
+    window.addEventListener('DOMContentLoaded', function() {
+      const el = document.getElementById('scroll-text');
+      if (!el) return;
+      function startScroll() {
+        el.style.transition = 'none';
+        el.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          const parent = document.getElementById('qn-overview');
+          if (!parent) return;
+          const parentW = parent.clientWidth;
+          const textW = el.scrollWidth;
+          if (textW > parentW) {
+            // 右端の見切れ防止のため+20px余白を加える
+            const distance = textW - parentW + 20;
+            // スクロール速度を1.5倍に（15→10に変更）
+            el.style.transition = `transform ${distance/10}s linear`;
+            el.style.transform = `translateX(-${distance}px)`;
+            setTimeout(() => {
+              el.style.transition = 'none';
+              el.style.transform = 'translateX(0)';
+              setTimeout(startScroll, 1000);
+            }, (distance/10)*1000+1000);
+          } else {
+            el.style.transition = 'none';
+            el.style.transform = 'translateX(0)';
+          }
+        }, 1000);
+      }
+      startScroll();
+    });
+
   </script>
 </body>
 </html>
