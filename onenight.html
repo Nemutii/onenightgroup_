@@ -304,7 +304,7 @@
   <div class="topnav">
     <div class="topnav-inner">
       <a href="index.html" class="topnav-logo">
-        <img src="https://p-ce.group/p3/img/logo_w.png" alt="ONENIGHT GROUP">
+        <img src="worldpic/logo.png" alt="ONENIGHT GROUP">
         <span style="color:#23243a;">ONENIGHT GROUP</span>
       </a>
       <nav class="topnav-menu">
@@ -346,7 +346,7 @@
   </div>
   <footer style="background: linear-gradient(120deg, #fffbe6 0%, #f7f7fa 100%); color:#23243a; padding:36px 0 18px 0; margin-top:60px; text-align:center; border-top: 1.5px solid #e6d8b7; box-shadow: 0 -2px 12px rgba(191,161,74,0.08);">
     <div style="max-width:900px;margin:0 auto;">
-      <img src="https://p-ce.group/p3/img/logo_w.png" alt="ONENIGHT GROUP" style="height:38px;margin-bottom:18px;filter:drop-shadow(0 2px 8px #bfa14a);">
+      <img src="worldpic/logo.png" alt="ONENIGHT GROUP" style="height:38px;margin-bottom:18px;filter:drop-shadow(0 2px 8px #bfa14a);">
       <div style="margin-bottom:18px;font-size:1.1em;letter-spacing:0.04em;">
         <a href="index.html" style="color:#23243a;text-decoration:none;margin:0 12px;">TOP</a>
         <a href="bar-onenight.html" style="color:#23243a;text-decoration:none;margin:0 12px;">BAR ONENIGHT</a>
@@ -360,27 +360,231 @@
     // --- キャスト・内勤データ ---
     const castList = [
       {
-        name: '一ノ瀬 蓮',
-        img: 'https://placehold.jp/200x250.png?text=REN',
+        name: '光くん。',
+        role: '代表',
+        img: 'worldpic/onenight/cast/hikaru.png',
         comment: '皆様のご来店を心よりお待ちしております！',
-        links: ['https://instagram.com/', 'https://twitter.com/'],
-        participants: ['一ノ瀬 蓮', '桜井 翼', '神楽 光']
+        links: ['https://x.com/hikaru_vrchat'],
+        participants: ['CLUB ONENIGHT']
       },
       {
-        name: '桜井 翼',
-        img: 'https://placehold.jp/200x250.png?text=TSUBASA',
+        name: 'ぷて。。',
+        role: '支配人',
+        img: 'worldpic/onenight/cast/pute.png',
         comment: '楽しい夜を一緒に過ごしましょう！',
-        links: [],
-        participants: ['桜井 翼', '一ノ瀬 蓮']
+        links: ['https://x.com/pute_yua1252'],
+        participants: ['CLUB ONENIGHT', 'KOMANOBAR','ハムスターグループ']
+      },
+      // 以下ダミーデータ例（19名分追加、必要に応じて編集してください）
+      {
+        name: 'なでこ。',
+        role: 'ディレクター',
+        img: 'worldpic/onenight/cast/nadeco.png',
+        comment: 'コメント3',
+        links: ['https://x.com/nadecods'],
+        participants: ['CLUB ONENIGHT', 'KOMANOBAR','ハムスターグループ']
+      },
+      {
+        name: '瀬戸内',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/setouchi.png',
+        comment: 'コメント4',
+        links: ['https://x.com/DaoNiu379'],
+        participants: ['CLUB ONENIGHT','ハムスターグループ']
+      },
+      {
+        name: '甘×目',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/amakakerutukiiti.png',
+        comment: 'コメント5',
+        links: ['https://x.com/amaxtukiichVRC'],
+        participants: ['CLUB ONENIGHT', '双扉学園']
+      },
+      {
+        name: 'oでこo',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/deko.png',
+        comment: 'コメント6',
+        links: ['https://x.com/dkdk_oDEKO'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
+      },
+      {
+        name: 'fox96',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/fox96.png',
+        comment: 'コメント7',
+        links: ['https://x.com/Cafemegurou'],
+        participants: ['CLUB ONENIGHT']
+      },
+      {
+        name: 'inku',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/inku.png',
+        comment: 'コメント8',
+        links: ['https://x.com/inklindou'],
+        participants: ['CLUB ONENIGHT','Bedlam','Cafe seren tia', 'イケボメイド トリプルエス']
+      },
+      {
+        name: 'じょに～',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/jhony.png',
+        comment: 'コメント9',
+        links: ['https://x.com/Jonny_Johny_'],
+        participants: ['CLUB ONENIGHT']
+      },
+      {
+        name: '影月ジン',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/kagetukizin.png',
+        comment: 'コメント10',
+        links: ['https://x.com/tanukithi_0602'],
+        participants: ['CLUB ONENIGHT','VRC KAMAKURA','ひなきぷカフェ','Bar KipRea','天上の縁']
+      },
+      {
+        name: 'KebinJP',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/KebinJP.png',
+        comment: 'コメント11',
+        links: ['https://x.com/keibinsrrrrr'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
+      },
+      {
+        name: 'MEGUMU',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/MEGUMU.png',
+        comment: 'コメント12',
+        links: ['https://x.com/MEGUMUwU'],
+        participants: ['CLUB ONENIGHT','RizeBAR']
+      },
+      {
+        name: 'ミスポタージュ',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/misupota-zyu.png',
+        comment: 'コメント13',
+        links: ['https://x.com/JCLBjLAqu95Zapa'],
+        participants: ['CLUB ONENIGHT','イケボ Guarigione','指名制イケボラウンジ eternita DAYDREAM Noche']
+      },
+      {
+        name: 'もくじ',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/mokuzi.png',
+        comment: 'コメント14',
+        links: ['https://x.com/bookmarker_7'],
+        participants: ['CLUB ONENIGHT','なでなで練習会','めす男子かふぇあどらぶ','癒しなで','夢うつつ']
+      },
+      {
+        name: 'ナルミ。',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/narumi.png',
+        comment: 'コメント15',
+        links: ['https://x.com/narumi_a763'],
+        participants: ['CLUB ONENIGHT','ハムスターグループ']
+      },
+      {
+        name: 'ねこたこね',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/nekotakone.png',
+        comment: 'オーナー殺す',
+        links: ['https://x.com/nekotakonevrc'],
+        participants: ['CLUB ONENIGHT','ぶいふぁんっ！','なりきりごっこの一味']
+      },
+      {
+        name: 'ねむち,',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/nemuti.png',
+        comment: '皆より小さいからって舐めないでね！',
+        links: ['https://x.com/YvngPatraxx'],
+        participants: ['CLUB ONENIGHT','ハムスターグループ']
+      },
+      {
+        name: 'ぷらすけ',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/purasuke.png',
+        comment: 'コメント18',
+        links: ['https://x.com/pura_suke008'],
+        participants: ['CLUB ONENIGHT','ハムスターグループ','双扉学園']
+      },
+      {
+        name: 'れびぃ。',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/revi.png',
+        comment: 'コメント19',
+        links: ['https://x.com/__Levi_vrc'],
+        participants: ['CLUB ONENIGHT','ハムスターグループ']
+      },
+      {
+        name: '鳥丸(とりまる)',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/torimaru.png',
+        comment: 'コメント20',
+        links: ['https://x.com/Torimaru06'],
+        participants: ['CLUB ONENIGHT','元カレ元カノ喫茶 TRIANGLAR','BarFrutia']
+      },
+      {
+        name: 'よるくん。',
+        role: 'キャスト',
+        img: 'worldpic/onenight/cast/yorukun.png',
+        comment: 'コメント21',
+        links: ['https://x.com/yoruqn'],
+        participants: ['CLUB ONENIGHT']
       }
     ];
     const staffList = [
       {
-        name: '内勤 佐藤',
-        img: 'https://placehold.jp/200x250.png?text=STAFF',
+        name: '燐寸くん',
+        role: '統括本部長',
+        img: 'worldpic/onenight/staff/mahi.png',
         comment: '裏方から全力サポートします！',
-        links: ['https://line.me/'],
-        participants: ['内勤 佐藤', '内勤 鈴木']
+        links: ['https://x.com/How_M_You_M'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
+      },
+      {
+        name: 'ぷて。。',
+        role: '支配人',
+        img: 'worldpic/onenight/staff/pute.png',
+        comment: 'みんなを支えます！',
+        links: ['https://x.com/pute_yua1252'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
+      },
+      {
+        name: 'ひさぎ＠',
+        role: '主任',
+        img: 'worldpic/onenight/staff/hisagi.png',
+        comment: 'イベント運営担当です。',
+        links: ['https://x.com/pb_s4'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ', 'ASMA集会', 'ASMA Salon Veludo','なりきりごっこの一味']
+      },
+      {
+        name: 'コースケ',
+        role: 'ディレクター',
+        img: 'worldpic/onenight/staff/ko-suke.png',
+        comment: 'よろしくお願いします！',
+        links: ['https://x.com/kousukeVRChat'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
+      },
+      {
+        name: '紅月フジタ',
+        role: '内勤',
+        img: 'worldpic/onenight/staff/akatukihizita.png',
+        comment: 'みなさんの笑顔が一番！',
+        links: ['https://x.com/fujita_aho'],
+        participants: ['CLUB ONENIGHT']
+      },
+      {
+        name: 'かもいも',
+        role: '内勤',
+        img: 'worldpic/onenight/staff/kamoimo.png',
+        comment: 'サポート頑張ります！',
+        links: ['https://x.com/xsderfddv'],
+        participants: ['CLUB ONENIGHT']
+      },
+      {
+        name: '瀬戸内',
+        role: 'ディレクター',
+        img: 'worldpic/onenight/staff/setouchi.png',
+        comment: 'よろしくお願いします！',
+        links: ['https://x.com/DaoNiu379'],
+        participants: ['CLUB ONENIGHT', 'ハムスターグループ']
       }
     ];
     let currentList = castList;
@@ -390,7 +594,8 @@
       grid.innerHTML = currentList
         .map((obj,idx) => `<div class='cast-card' tabindex='0' onclick='showModal(${idx})'>
           <img src='${obj.img}' alt='${obj.name}' style='width:90px;height:110px;object-fit:cover;border-radius:10px;border:1.5px solid #bfa14a;margin-bottom:8px;'>
-          <div style='font-weight:bold;color:#bfa14a;font-size:1.05em;'>${obj.name}</div>
+          <div style='font-weight:bold;color:#23243a;font-size:1.05em;'>${obj.name}</div>
+          ${obj.role ? `<div style='color:#23243a;font-size:0.98em;margin-bottom:2px;'>${obj.role}</div>` : ''}
         </div>`).join('');
       document.getElementById('btn-cast').classList.toggle('active', type==='cast');
       document.getElementById('btn-staff').classList.toggle('active', type==='staff');
@@ -403,17 +608,25 @@
       const obj = currentList[idx];
       let linksHtml = '';
       if(obj.links && obj.links.length) {
-        linksHtml = `<div class='modal-links'>` + obj.links.map(link=>`<a href='${link}' target='_blank'>リンク</a>`).join('') + `</div>`;
+        linksHtml = `<div class='modal-links' style="text-align:left;">` + obj.links.map(link=>
+          `<a href='${link}' target='_blank' title="X(Twitter)" style="display:inline-block;vertical-align:middle;margin-right:10px;">
+            <svg width="22" height="22" viewBox="0 0 1200 1227" style="vertical-align:middle;">
+              <path fill="#bfa14a" d="M1200 214.2c-44.2 19.6-91.7 32.8-141.6 38.8 50.9-30.5 90-78.8 108.4-136.4-47.7 28.3-100.6 48.9-156.9 60-45-48-109.2-78-180.3-78-136.4 0-247 110.6-247 247 0 19.3 2.2 38.1 6.4 56.1C379.7 389.2 201.4 290.2 82.1 142.6c-21.1 36.2-33.2 78.3-33.2 123.2 0 85 43.3 160 109.2 204.1-40.2-1.3-78-12.3-111.1-30.7v3.1c0 118.8 84.6 217.8 197 240.3-20.6 5.6-42.3 8.6-64.7 8.6-15.8 0-31.2-1.5-46.2-4.4 31.3 97.7 122.2 168.8 229.9 170.7-84.2 66-190.4 105.3-305.9 105.3-19.9 0-39.5-1.2-58.8-3.5C108.8 1102.7 238.2 1140 377.6 1140c453.1 0 701.2-375.5 701.2-701.2 0-10.7-0.2-21.3-0.7-31.8 48.1-34.7 89.8-78.1 122.9-127.8z"/>
+            </svg>
+          </a>`
+        ).join('') + `</div>`;
       }
       let castListHtml = '';
       if(obj.participants && obj.participants.length) {
         castListHtml = `<div class='modal-castlist'>参加キャスト: ${obj.participants.join(', ')}</div>`;
       }
+      let roleHtml = obj.role ? `<div class='modal-role' style="color:#23243a;font-weight:bold;margin-bottom:8px;">${obj.role}</div>` : '';
       modalDetail.innerHTML = `
         <div class='modal-flex'>
           <img class='modal-img' src='${obj.img}' alt='${obj.name}'>
           <div class='modal-info'>
-            <div class='modal-name'>${obj.name}</div>
+            <div class='modal-name' style="color:#23243a;">${obj.name}</div>
+            ${roleHtml}
             ${linksHtml}
             ${castListHtml}
             <div class='modal-comment'>${obj.comment}</div>
@@ -448,12 +661,12 @@
             el.style.transform = `translateX(-${distance}px)`;
             setTimeout(() => {
               el.style.transition = 'none';
-              el.style.transform = 'translateX(0)';
+              el.style.transform = `translateX(0)`;
               setTimeout(startScroll, 1000);
             }, (distance/10)*1000+1000);
           } else {
             el.style.transition = 'none';
-            el.style.transform = 'translateX(0)';
+            el.style.transform = `translateX(0)`;
           }
         }, 1000);
       }
